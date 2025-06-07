@@ -48,6 +48,11 @@ public class ProductController {
         return productRepo.findAll();
     }
 
+    @GetMapping("/category/{id}")
+    public List<Product> getAllwithCode(@PathVariable String id) {
+        return productRepo.findByCodeIgnoreCase(id);
+    }
+
     // 🔍 Get product by ID
     @GetMapping("/{id}")
     public Product getById(@PathVariable String id) {
